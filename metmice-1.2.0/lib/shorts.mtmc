@@ -1,0 +1,13 @@
+1 -> output;
+2 -> computeStack;
+3 -> system;
+
+
+0 -> Sys_exit0;
+1 -> Sys_exit1;
+2 -> Sys_openFile;
+3 -> Sys_sysExecute;
+4 -> Sys_sleep;
+5 -> Sys_sysInput;
+6 -> Sys_maxRecVal;
+7 -> Sys_sysName;
