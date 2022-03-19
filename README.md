@@ -243,6 +243,8 @@ There are a lot of keywords :
   operator "&" "!and";
   ```
 
+Beware, you can not use all the keywords wherever you wants !
+
 ### Loops
 They are two types of loops : for loops and while loops
 
@@ -323,5 +325,4 @@ To do so, just write at the begining of your file :
 
 With that done, you can now use all the functions you will need !
 
-## The standard librairie
-### Disponible functions and documentation
+
