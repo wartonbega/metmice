@@ -2,7 +2,7 @@
 A programming language.
 
 
-## How the language works ?
+## How does the language works ?
 Basicly, it is half stack based, and half not.
 
 There are three stacks : 
