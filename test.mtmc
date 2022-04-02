@@ -1,0 +1,18 @@
+include "./lib/std.mtmc";
+
+
+!random() -> random;
+[] -> all;
+
+for(i, 0, 1000)
+{
+    !random.randint() -> n;
+    !int_to_list(n) -> l;
+    !len(l) -> le;
+    all + le;
+};
+
+!print(all)
+!print(!max(all));
+!print(!random.to_string());
+

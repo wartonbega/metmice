@@ -1,0 +1,23 @@
+include "../lib/std.mtmc";
+
+main()[none]
+{
+    0 -> sum;
+    for(i, 0, 1000)
+    {
+        if (i%3 = 0)
+        {
+            sum + i -> sum;
+        }
+        else
+        {
+            if (i % 5 = 0)
+            {
+                sum + i -> sum;
+            };
+        };
+    };
+    !print(sum);
+};
+
+!main();
