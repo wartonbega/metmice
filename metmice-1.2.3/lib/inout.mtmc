@@ -1,0 +1,27 @@
+print(value)[none]{
+    push 1 value;
+    push 1 "\n";
+};
+
+input(value)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    push 1 value;
+    push 3 5;
+    "" + -> result;
+    !set_compute_mode(mode);
+    return result;
+};
+
+open(file)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    push system 8;
+    "" + -> dir;
+    push computeStack dir file +;
+    push system Sys_openFile;
+    "" + -> res;
+    
+    !set_compute_mode(mode);
+    return res;
+};

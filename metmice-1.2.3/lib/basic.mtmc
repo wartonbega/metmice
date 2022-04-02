@@ -1,0 +1,77 @@
+and(val1, val2)[false, false]{
+
+    !typecheck(val1, "bool", "!and");
+    !typecheck(val2, "bool", "!and");
+    if (val1){
+        if (val2){
+            return true;
+        } else {
+            return false;
+        };
+    } else {
+        return false;
+    };
+};
+
+or(val1, val2)[false, false]{
+
+    !typecheck(val1, "bool", "!or");
+    !typecheck(val2, "bool", "!or");
+
+    if (val1){
+        return true;
+    };
+    if (val2){
+        return true;
+    };
+    return false;
+};
+
+xor(val1, val2)[false, false]{
+
+    !typecheck(val1, "bool", "!xor");
+    !typecheck(val2, "bool", "!xor");
+
+    if (val1){
+        if (val2){
+            return false;
+        };
+        return true;
+    };
+    if (val2){
+        if (val1){
+            return false;
+        };
+        return true;
+    };
+    return false;
+};
+
+in(val1, val2)[false, false]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+
+    !typecheck(val2, "list", "!in");
+
+    for(i, 0, !len(val2)){
+        if(val2 i * val1 =)
+        {
+            !set_compute_mode(mode);
+            return true;
+        };
+    };
+    !set_compute_mode(mode);
+    return false;
+};
+
+
+not(val1)[false]{
+
+    !typecheck(val1, "bool", "!xor");
+
+    if(val1)
+    {
+        return false;
+    };
+    return true;
+};

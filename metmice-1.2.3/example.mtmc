@@ -1,0 +1,35 @@
+include "./lib/std.mtmc";
+
+!set_compute_mode(1);           // Set the compute mode to normal mode
+
+!print("Hello World!");         // Print to the screen
+
+[1, 2, 3, 4] -> list;           // Initiate a list
+!print(list*1);                 // Accessing elements
+
+!map() -> m;                    // Creates a new variable of type map
+!m.add("name", "Metmice");      // Add a key-value pair to the map
+!m.add("creator", "Anton Appel");
+!m.add("version", "1.2.1");
+!print(
+    m;                     // Prints the map
+);
+
+!print(
+    !m.get("name")               // Get the value of a key
+);
+
+for(i, 0, 10)                   // For loop that iterates from 0 to 10
+{
+    !print(i);                  // Prints the value of i
+};
+
+times(a, b)[none]               // Creates a function that takes two arguments
+{
+    return a * b;               // Returns the product of the two arguments
+};
+
+
+!print(
+    !tenth_power(100)
+);
