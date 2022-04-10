@@ -26,14 +26,13 @@ void variable_asignement_function(Mtmc_variable *var, map<string, Mtmc_variable 
 
 void variable_override_function(Mtmc_variable *var, map<string, Mtmc_variable *> &variable_function, string name)
 {
+    // On peut directement acceder à l'élement, vus que avant d'overrdie, on as checké si elle existe
+    variables_t[name] = var;
 
-    map<string, Mtmc_variable *>::iterator it = variables_t.find(name);
-    if (it != variables_t.end())
-        it->second = var;
-        
+
     if (variable_exist(name))
     { // Si la variable est globale, alors on appel plutôt la définition d'une nouvelle variable à l'interieur de la fonction
-        variable_asignement_function(var, variable_function, name);
+        variable_asignement_function(var, variable_function, name); // On ne veut pas réécrire une variable globale
     }
 }
 
@@ -443,12 +442,12 @@ Mtmc_variable *execute_function(vector<Node *> ast, vector<Mtmc_variable *> args
                 }
                 Mtmc_variable *arg1_push;
                 Mtmc_variable *arg2_push;
-                
+
                 arg2_push = computes.top();
                 computes.pop();
                 arg1_push = computes.top();
                 computes.pop();
-                
+
                 if (!Mtmc_variable_type_check(arg1_push, "int"))
                 {
                     Error("execution", "arguments for 'push' keyword needs to be an integer");

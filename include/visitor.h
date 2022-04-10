@@ -365,9 +365,8 @@ void variable_asignement(Mtmc_variable *var, string name)
 
 void variable_override(Mtmc_variable *var, string name)
 {
-    map<string, Mtmc_variable *>::iterator it = variables_t.find(name);
-    if (it != variables_t.end())
-        it->second = var;
+    // On peut directement acceder à l'élement, vus que avant d'overrdie, on as checké si elle existe
+    variables_t[name] = var;
 }
 
 bool mtmc_accept_var_name(string name)
