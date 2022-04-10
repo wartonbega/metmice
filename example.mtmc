@@ -33,3 +33,6 @@ times(a, b)[none]               // Creates a function that takes two arguments
 !print(
     !tenth_power(100)
 );
+
+
+!print(!plateform());
