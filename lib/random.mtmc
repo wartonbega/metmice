@@ -1,5 +1,3 @@
-
-
 struct random
 {
     31415821 -> a;
@@ -18,6 +16,28 @@ struct random
         r -> self.seed;
         !set_compute_mode(mode);
         return r;
+    };
+
+    random(self, max)[none]
+    {
+        !get_compute_mode() -> mode;
+        !set_compute_mode(1);
+
+        self.a * self.seed + 1 -> r;
+
+        r % self.m -> r;
+
+        r -> self.seed;
+
+        !set_compute_mode(mode);
+        return r%max;
+    };
+
+    choice(self, list)[none]
+    {
+        !len(list) -> l;
+        !self.random(l) -> i;
+        return list*i;
     };
 
     to_string(self)[none]
