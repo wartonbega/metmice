@@ -1,0 +1,12 @@
+void error_generator_alu(string ope, Mtmc_variable *one, Mtmc_variable *two, string type1, string type2);
+Mtmc_variable *alu_plus(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_minus(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_times(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_equals(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_power(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_div(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_floordiv(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_modulo(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_gt(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_lt(Mtmc_variable *arg1, Mtmc_variable *arg2);
+Mtmc_variable *alu_negativ(Mtmc_variable *arg1);

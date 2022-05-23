@@ -1,0 +1,60 @@
+include "std.mtmc";
+
+!execute_cmd("echo \"Hello World\"");
+!print("!execute_cmd(echo Hello World)");
+
+!plateform();
+!print("!plateform();");
+
+!set_max_recursion_error(100);
+!print("!set_max_recursion_error(100);");
+
+!print("test");
+!print("!print(\"test\");");
+
+!open("test_std.mtmc");
+!print("!open(test_std.mtmc);");
+
+
+!typecheck(none, "none", "'none n'est pas de type none, test_std -> !typecheck");
+!print("!typecheck(none, \"none\", \"'none n'est pas de type none, test_std -> !typecheck\");");
+
+
+!assert(3 > 2 , "3 est plus petit que deux", "test_std.mtmc -> !assert");
+!print("!assert(3 > 2, 3 est plus petit que deux, test_std.mtmc -> !assert);");
+
+
+
+
+
+!abs(0-3);
+!print("!abs(-3);");
+
+!sum_between(0, 100);
+!print("!sum_between(0, 100);");
+
+!sum(50);
+!print("!sum(50);");
+
+!factorial(20);
+!print("!factorial(20);");
+
+!typeof("test string");
+!print("!typeof(test string);");
+
+!max_between(1,2);
+!print("!max_between(1,2);");
+
+!sleep(3);
+!print("!sleep(3);");
+
+
+
+!and(true, true);
+!print("!and(true, true);");
+
+!or(true, false);
+!print("!or(true, false);");
+
+!xor(false, true);
+!print("!xor(false, true);");

@@ -1,0 +1,11 @@
+// Le 21 mai 2022 à 15h00, par Anton Appel
+
+
+// C'est le template des magic-methods, qui est générale à toutes les methodes de bases.
+// C'est à dire que sauf si la méthode est réécrite, ce sera celle-là automatiquement.
+// Changer son comportement peut affecter le comportement de tout le code
+
+MTMC_MAGIC_FUNCTION_GLOBAL_TEMPLATE(self, a)[none]
+{
+    return self; 
+};

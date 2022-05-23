@@ -1,0 +1,125 @@
+// Le 22 mai 2022 à 10h00, par Anton Appel
+
+// On include au cas où la bibliothèque à magic-functions
+include "struct_magic_functions.mtmc";
+
+// Une classe map qui associe un élément à un autre
+// on peut associer n'importe quel type avec un autre
+// les types par contre obligent l'utilisateur à faire attention à ce qu'il inscrit dans la map
+
+struct map 
+{
+    [] -> keys;
+    [] -> values;
+
+    add(self, key, value)[none]
+    {
+        self.keys + key;
+        self.values + value;
+    };
+
+    get(self, key)[none]
+    {
+
+        length self.values;
+        + 0 -> len;
+        if (len = 0)
+        {
+            !error("map : the map is empty");
+        };
+        for(i, 0, len)
+        {
+            if(self.keys*i = key)
+            {
+                return self.values * i;
+            };
+        };
+        !error("map : the key is not found");
+    };
+
+    in(self, key)[none]
+    {
+        length self.values;
+        + 0 -> len;
+        for(i, 0, len)
+        {
+            if(self.keys*i = key)
+            {
+                return true;
+            };
+        };
+        return false;
+    };
+
+    to_string(self)[none]
+    {
+        "" -> str;
+        length self.values;
+        + 0 -> len;
+        if (len = 0)
+        {
+            return "{} ";
+        };
+        for(i, 0, len)
+        {
+            self.keys*i -> k;
+            self.values*i -> v;
+            str + "{ " -> str;
+            if (!typeof(k) = "string")
+            {
+                str + "\"" + k + "\"" -> str;
+            } else 
+            {
+                str + !to_string(k) -> str;
+            };
+            str + " : " -> str;
+            if (!typeof(v) = "string")
+            {
+                str + "\"" + v + "\"" -> str;
+            } else 
+            {
+                str + !to_string(v) -> str;
+            };
+            str + " } " -> str;
+
+        };
+        return str;
+    };
+
+    magic_plus(self, other_map)[none]
+    { // Additione (concatène) deux maps
+        if(!not(!typeof(other_map) = "type:map"))
+        {
+            !error("map : '+' operator for a map only supports 'type:map' to concatenate with");
+        };
+        other_map.keys -> other_keys;
+        for (i, 0, !len(other_keys))
+        {
+            other_keys*i -> key;
+            !other_map.get(key) -> value;
+            !self.add(key, value);
+        };
+        return self;
+    };
+
+    magic_times(self, element)[none]
+    {
+        if (!typeof(element) = "list")
+        {
+            if (!len(element) > 0)
+            {
+                element*0 -> e;
+                return !self.get(e);
+            }
+            else
+            {
+                !error("map : the list indicating the key must not be empty");
+            };
+        } 
+        else
+        {
+            return !self.get(element);
+        };
+    };
+};
+

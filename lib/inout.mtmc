@@ -1,0 +1,28 @@
+print(value)[none]{
+    push 1 value;
+    push 1 "\n";
+};
+
+input(value)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    push 1 value;
+    push 3 5;
+    "" + -> result;
+    !set_compute_mode(mode);
+    return result;
+};
+
+open(file)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    push system 8;
+    "" + -> dir;
+    dir file + -> fullname;
+    push 2 fullname;
+    push 3 2;
+    "" + -> res;
+    
+    !set_compute_mode(mode);
+    return res;
+};

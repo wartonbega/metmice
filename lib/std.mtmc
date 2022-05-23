@@ -1,0 +1,103 @@
+include "struct_magic_functions.mtmc";
+
+get_compute_mode()[]{
+    push 2 0;
+    push 3 10;
+    0 + -> mode;
+    push 2 mode;
+    push 3 10;
+    return mode; 
+};
+
+set_compute_mode(mode)[none]{
+    push 2 mode;
+    push 3 10;
+};
+
+check_compute_mode(check)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    if (mode check =){
+        !set_compute_mode(mode);
+        return true;
+    } else {
+        !set_compute_mode(mode);
+        return false;
+    };
+};
+
+set_stack_garbage_collection(mode)[none]{
+    push 2 mode;
+    push 3 11;
+};
+
+time()[none]
+{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    push 3 Sys_time;
+    0 + -> t;
+    !set_compute_mode(mode);
+    return t;
+};
+!set_compute_mode(1); 
+
+include "shorts.mtmc";
+include "inout.mtmc";
+include "errors.mtmc";
+include "basic.mtmc";
+include "sys.mtmc";
+include "maths.mtmc";
+include "maps.mtmc";
+include "lists.mtmc";
+include "random.mtmc";
+include "conversion.mtmc";
+
+sleep(value)[none]{
+    push 2 value;
+    push 3 4;
+};
+
+
+max_between(x, y)[none, none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    if (x y >){
+        return x;
+    };
+    !set_compute_mode(mode);
+    return y;
+};
+
+typeof(variable)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+    type variable;
+    "" + -> typef;
+    !set_compute_mode(mode);
+    return typef;
+};
+
+sum_between(x, y)[none]{
+    !get_compute_mode() -> mode;
+    !set_compute_mode(0);
+
+    !typecheck(x, "int", "!sum");
+    !typecheck(y, "int", "!sum");
+    !assert(x y <, "the second argument should be greater than the first", "!sum_between");
+
+    0 -> total;
+
+    for(i, x, y){
+        total i + -> total;
+    };
+    !set_compute_mode(mode);
+    return total;
+};
+
+operator "or" "!or";
+operator "and" "!and";
+operator "xor" "!xor";
+operator "in" "!in";
+
+!set_compute_mode(1);

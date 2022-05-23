@@ -1,0 +1,34 @@
+
+to_string(value)[none]
+{
+    if (!typeof(value) = "string")
+    {
+        return value;
+    };
+    convert "string" value;
+    + "" -> result;
+    return result;  
+};
+
+
+to_int(value)[none]
+{
+    if (!typeof(value) = "int")
+    {
+        return value;
+    };
+    convert "int" value;
+    + 0 -> result;
+    return result;  
+};
+
+to_float(value)[none]
+{
+    if (!typeof(value) = "float")
+    {
+        return value;
+    };
+    convert "float" value;
+    + 0.0 -> result;
+    return result;
+};

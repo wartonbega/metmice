@@ -1,5 +1,4 @@
 include "./lib/std.mtmc";
-
 !set_compute_mode(1);           // Set the compute mode to normal mode
 
 !print("Hello World!");         // Print to the screen
@@ -10,29 +9,54 @@ include "./lib/std.mtmc";
 !map() -> m;                    // Creates a new variable of type map
 !m.add("name", "Metmice");      // Add a key-value pair to the map
 !m.add("creator", "Anton Appel");
-!m.add("version", "1.2.1");
+!m.add("version", "1.2.5");
+!m.add("global version", 1);
+
+
 !print(
-    m;                     // Prints the map
+    m    // Print the map
 );
 
 !print(
-    !m.get("name")               // Get the value of a key
+    m*["name"]              // Get the value of the key "name"
 );
+
+
 
 for(i, 0, 10)                   // For loop that iterates from 0 to 10
 {
-    !print(i);                  // Prints the value of i
+    push 1 i;                  // Prints the value of i
+    push 1 " ";
 };
+
+push 1 "\n";
 
 times(a, b)[none]               // Creates a function that takes two arguments
 {
     return a * b;               // Returns the product of the two arguments
 };
 
-
+push 1 "tenth power of 100 : ";
 !print(
     !tenth_power(100)
 );
 
+fib(n, a, b)[none]
+{
+    if (n = 0)
+    {
+        return a;
+    }
+    else
+    {
+        if (n = 1)
+        {
+            return b;
+        }
+        else
+        {
+            return !fib(n - 1, b, a + b);
+        };
+    };
+};
 
-!print(!plateform());
