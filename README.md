@@ -317,6 +317,7 @@ Options are :
 - --ast_show or -A to show the abstract syntax tree
 - --clear_stack_disabled or -c to desable the compute stack clearing
 - --help or -h to show the help message
+- --print_full_error or -e to print the full error calling stack
 
 ## How to start a new program
 The first and most recommended thing to do when you create a ".mtmc" file is to include the standard librairie.
